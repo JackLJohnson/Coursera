@@ -30,11 +30,10 @@ def crypt_PS1():
       if numOcc[i] > maxOcc[1]:
         maxOcc = [i,numOcc[i]]
 
-    # XOR the byte with highest probability of being a space character with the 
-    # message we wish to decode, then xor again with a space character to obtain the proper case
+    # XOR the byte with highest probability of being a space character with the message we wish to decode
     xorChar = asciiTexts[maxOcc[0]][ithChar] ^ asciiTexts[len(asciiTexts) - 1][ithChar]
 
-    # Return the decoded character
+    # Return the decoded character XOR'ed with a space character to obtain the proper case
     return chr(xorChar ^ 32)
 
   # Inputs of cipher texts in .txt
